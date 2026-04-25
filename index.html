@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f3ea" />
+    <title>晋升面试复习</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Promotion Review</p>
+          <h1>晋升面试复习</h1>
+        </div>
+        <button class="icon-button" id="shuffleBtn" type="button" aria-label="随机抽题" title="随机抽题">
+          ↻
+        </button>
+      </header>
+
+      <section class="stats" aria-label="复习进度">
+        <div>
+          <span id="totalCount">0</span>
+          <small>题目</small>
+        </div>
+        <div>
+          <span id="knownCount">0</span>
+          <small>已掌握</small>
+        </div>
+        <div>
+          <span id="starCount">0</span>
+          <small>收藏</small>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="筛选">
+        <label class="search">
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="输入关键词" autocomplete="off" />
+        </label>
+        <select id="sectionSelect" aria-label="分类筛选"></select>
+      </section>
+
+      <nav class="tabs" aria-label="复习模式">
+        <button class="tab is-active" type="button" data-filter="all">全部</button>
+        <button class="tab" type="button" data-filter="unknown">未掌握</button>
+        <button class="tab" type="button" data-filter="starred">收藏</button>
+      </nav>
+
+      <section class="sync-row" aria-label="同步状态">
+        <span id="syncStatus">仅保存在本机浏览器</span>
+        <button id="syncNowBtn" type="button">同步</button>
+      </section>
+
+      <section class="card-stage" aria-live="polite">
+        <article class="review-card">
+          <div class="card-meta">
+            <span id="cardIndex">0 / 0</span>
+            <span id="cardSection">分类</span>
+          </div>
+          <h2 id="questionText"></h2>
+          <div class="answer" id="answerBox" hidden></div>
+          <button class="primary" id="toggleAnswerBtn" type="button">显示答案</button>
+        </article>
+      </section>
+
+      <section class="actions" aria-label="卡片操作">
+        <button id="prevBtn" type="button">上一题</button>
+        <button id="starBtn" type="button">收藏</button>
+        <button id="knownBtn" type="button">标记掌握</button>
+        <button id="nextBtn" type="button">下一题</button>
+      </section>
+
+      <section class="list-panel">
+        <div class="list-head">
+          <h2>题目列表</h2>
+          <span id="resultCount">0</span>
+        </div>
+        <div class="question-list" id="questionList"></div>
+      </section>
+    </main>
+
+    <script src="./qa-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
